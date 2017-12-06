@@ -31,6 +31,7 @@
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav  navbar-right">
             <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'failanalys' %}">View Failure Analysis</a></li>
             <li><a href="{% url 'register' %}">Register</a></li>
             <li><a href="{% url 'login' %}">Login</a></li>
         </ul>
@@ -44,16 +45,21 @@
 
 				<h2>Certification details</h2>
 			<br/>
-			<br/>
 
 
                 <h3> The Certification status of product with ModelNo {{ productID }} is : {{ certification }} </h3>
+                <br />
+                <h3> Analyzing results:</h3>
+                <p align="center"><br/>
+                 Sequence A is pass if UV test, Thermal Cycling (TC50) test, Humidity Freeze tests are passed. <br/>
+                 Sequence B is pass if Thermal Cycling (TC200) test is passed.<br/>
+                 Sequence C is pass if Damp Heat test is passed. <br/>
+                 Sequence Z is pass if Baseline tests are passed. <br/>
 
+                </p>
                 <br/>
                 <br />
                  <br/>
-
-
 
       <!--wrap your page content-->
 

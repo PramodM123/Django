@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% block head %}
-<title>Failure Analysis</title>
+<title> Failure Analysis </title>
 {% endblock %}
 
 {% block body %}
-
 	<header class="container" id="site_header" >
             <div id="icon" class="image">
 
@@ -18,7 +17,7 @@
 
 	</header>
 
-    <div class="container-fluid">
+	    	<div class="container-fluid">
     <nav class="navbar navbar-default navheader">
         <div class="navbar-header ">
         <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -30,80 +29,17 @@
       </div>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav  navbar-right">
-		 <!--   <li class="active"><a href="{% url 'home' %}">Home</a></li> -->
-            <li><a href="{% url 'logout' %}">Logout ({{ request.COOKIES.TestlabName }})</a></li>
+		    <li><a href="{% url 'home' %}">Home</a></li>
+		    <li class="active"><a href="{% url 'failanalys' %}">View Failure Analysis</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
         </ul>
 
      </div>
     </nav>
-
-
-    <div class="col-sm-4 col-lg-2">
-
-	<br/>
-
-	    <!-- Content goes here -->
-        <a href="{% url 'viewprojs' %}">
-				<input type="button" value="View Projects" class="btn btn-primary custom" style="float: left; margin-left:16px">
-			</a>
-			<br/>
-			<br/>
-
-			<a href="{% url 'addsamples' %}">
-				<input type="button" value="Add Samples" class="btn btn-primary custom" style="float: left; margin-left:16px">
-			</a>
+</div>
 
 			<br/>
-			<br/>
-
-			<a href="{% url 'addtbresults' %}">
-				<input type="button" value="Add Baseline Results" class="btn btn-primary custom" style="float: left; margin-left:16px">
-			</a>
-
-			<br/>
-			<br/>
-
-            <a href="{% url 'addtresults' %}">
-				<input type="button" value="Add Test Results" class="btn btn-primary custom" style="float: left; margin-left:16px">
-			</a>
-
-			<br/>
-			<br/>
-
-
-			<a href="{% url 'viewtresults' %}">
-				<input type="button" value="View Test Results" class="btn btn-primary custom" style="float: left; margin-left:16px">
-			</a>
-
-			<br/>
-			<br/>
-			<a href="{% url 'viewtcerti' %}">
-				<input type="button" value="View Certification" class="btn btn-primary custom" style="float: left; margin-left:16px">
-			</a>
-
-                        <br/>
-			<br/>
-			<a href="{% url 'failanalys' %}">
-				<input type="button" value="Failure Analysis" class="btn btn-default custom" style="float: left; margin-left:16px">
-			</a>
-
-		<br/>
-		<br/>
-			<br/>
-
-
-
-
-    </div>
-
-  <div class="col-sm-8 col-lg-10">
-      <!--wrap your page content-->
-
-	  <div class="wrap" >
-
-
-        <div class = "col-md-8 ">
-
 
 		<h2 style="text-align: center">Failure Analysis Chart</h2>
 		<!--	<h2>Welcome {{ request.COOKIES.ManufacturerName }}</h2> From Cookie if needed-->
@@ -132,12 +68,14 @@
                      UV - Ultra Violet
                      HF - Humidity Freeze
                      DH - Damp Heat
-            </p>
-      </div>
 
-    </div> <!--wrap closing -->
-    </div>
-  </div>
+              <br/> <br>
+               Failure Analysis charts shows the failure percentage of each inidividual tests for the products tested for Certification
+            </p>
+
+            <br/>
+            <br/>
+
 
 	<br/>
 <div class="footer navbar-fixed-bottom">

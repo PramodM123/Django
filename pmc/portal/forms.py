@@ -126,7 +126,7 @@ class ViewDetCertForm(forms.Form):
 
 #Form to add Samples
 class AddSamplesForm(forms.Form):
-    projno = forms.CharField(max_length=50, label="Project No")
+    projno = forms.CharField(max_length=50, label="Project No",  widget=forms.TextInput(attrs={'placeholder': '1001'}))
     samplescount = forms.CharField(max_length=50, label="No. of Smaples")
 
     def clean(self):
@@ -139,7 +139,7 @@ class AddSamplesForm(forms.Form):
 
 #Form to add Baseline Test Results
 class AddTBresultsForm(forms.Form):
-    projno = forms.CharField(max_length=50, label='Project No')
+    projno = forms.CharField(max_length=50, label='Project No', widget=forms.TextInput(attrs={'placeholder': '1001'}))
     sampleid = forms.CharField(max_length=50, label='Sample ID')
  #   seq = forms.CharField(max_length=50)
  #   testname = forms.CharField(max_length=50)
@@ -178,8 +178,8 @@ class AddTBresultsForm(forms.Form):
 
 #Form to add Stress Test Results
 class AddTresultsForm(forms.Form):
-    projno = forms.CharField(max_length=50, label='Project No')
-    sampleid = forms.CharField(max_length=50, label= "Sample ID")
+    projno = forms.CharField(max_length=50, label='Project No', widget=forms.TextInput(attrs={'placeholder': '1001'}))
+    sampleid = forms.CharField(max_length=50, label= "Sample ID", widget=forms.TextInput(attrs={'placeholder': '1'}))
    # seq = forms.CharField(max_length=50, label='Sequence', widget=forms.TextInput(attrs={'placeholder': 'A'}))
     SEQ_CHOICES = [
         ('A', 'A'),
@@ -231,7 +231,7 @@ class AddTresultsForm(forms.Form):
 
 #Form to take projno and return Tets results
 class ViewTresultsForm(forms.Form):
-    projno = forms.CharField(max_length=50, label=" Project No")
+    projno = forms.CharField(max_length=50, label=" Project No", widget=forms.TextInput(attrs={'placeholder': '1001'}))
 
     def clean(self):
         cleaned_data = super(ViewTresultsForm, self).clean()
@@ -244,7 +244,13 @@ class ViewTresultsForm(forms.Form):
 
 #Form to view Detailed Certification -- Testlab
 class ViewTCertForm(forms.Form):
-    projno = forms.CharField(max_length=50, label='Project No ')
+    projno = forms.CharField(max_length=50, label='Project No ', widget=forms.TextInput(attrs={'placeholder': '1001'}))
+    test_folder_ddl = forms.choiceField()
+    choice = forms.ModelChoiceField(queryset=MyChoices.Objects.all())
+
+    def __init__(self, *args, **kwargs):
+        super(Test1Form, self).__init__(*args, **kwargs)
+        self.fields['test_folder_ddl'].choices = utility.get_folder_list()
 
     def clean(self):
         cleaned_data = super(ViewTCertForm, self).clean()
