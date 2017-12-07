@@ -1,5 +1,6 @@
 from django import forms
 
+
 #LoginForm takes inputs Username, Password
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=50, label='Username ')
@@ -245,12 +246,6 @@ class ViewTresultsForm(forms.Form):
 #Form to view Detailed Certification -- Testlab
 class ViewTCertForm(forms.Form):
     projno = forms.CharField(max_length=50, label='Project No ', widget=forms.TextInput(attrs={'placeholder': '1001'}))
-    test_folder_ddl = forms.choiceField()
-    choice = forms.ModelChoiceField(queryset=MyChoices.Objects.all())
-
-    def __init__(self, *args, **kwargs):
-        super(Test1Form, self).__init__(*args, **kwargs)
-        self.fields['test_folder_ddl'].choices = utility.get_folder_list()
 
     def clean(self):
         cleaned_data = super(ViewTCertForm, self).clean()
